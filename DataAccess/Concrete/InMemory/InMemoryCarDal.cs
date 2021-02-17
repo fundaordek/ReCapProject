@@ -4,11 +4,12 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal:ICarDal
     {
         List<Car> _cars;
         public InMemoryCarDal()
@@ -31,12 +32,22 @@ namespace DataAccess.Concrete.InMemory
             _cars.Remove(CarToDelete);
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _cars;
         }
 
-        public List<Car> GetById(int brandId)
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetByBrand(int brandId)
         {
             return _cars.Where(c => c.BrandId == brandId).ToList();
         }
