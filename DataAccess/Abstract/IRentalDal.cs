@@ -1,6 +1,4 @@
-﻿
-
-using Core.DataAccess;
+﻿using Core.DataAccess;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -10,8 +8,8 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal : IEntityRepository<Car>
+   public interface IRentalDal:IEntityRepository<Rental>
     {
-        List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null);
+        List<RentalDetailDto> GetRentalDetails(Expression<Func<Rental, bool>> filter = null);
     }
 }

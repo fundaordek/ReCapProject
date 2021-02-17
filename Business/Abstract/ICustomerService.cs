@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Business.Abstract
 {
-   public interface IBrandService
+   public interface ICustomerService
     {
-        IDataResult<List<Brand>> GetAll();
-       IDataResult<Brand> GetById(int brandId);
+        IDataResult <List<Customer>> GetAll();
+        IDataResult <Customer> GetById(int customerId);
     }
 }
