@@ -67,7 +67,7 @@ namespace Business.Concrete
 
         public IResult UpdateReturnDate(int carId)
         {
-            var result = _rentalDal.GetAll(c => c.CarId == carId);
+            var result = _rentalDal.GetAll(x => x.CarId == carId);
             var updatedRental = result.LastOrDefault();
             if (updatedRental.ReturnDate != null)
             {

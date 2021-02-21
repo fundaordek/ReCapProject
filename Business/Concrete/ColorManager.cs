@@ -25,4 +25,5 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Color>(_colorDal.Get(cl => cl.ColorId == colorId));
         }
+    }
 }
