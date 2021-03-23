@@ -16,12 +16,12 @@ namespace Business.Concrete
         ICarDal _carDal;
         public CarManager(ICarDal carDal)
         {
-            _carDal = carDal;   
+            _carDal = carDal;
         }
 
         public IResult Add(Car car)
         {
-            if (car.Description.Length<2)
+            if (car.Description.Length < 2)
             {
                 return new ErrorResult(Messages.CarBrandNameInvalid);
             }
@@ -31,16 +31,16 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==1)
+            if (DateTime.Now.Hour == 1)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintanceTime);
             }
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
         public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c=>c.CarId == carId));
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == carId));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
